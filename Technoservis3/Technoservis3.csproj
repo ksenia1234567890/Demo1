@@ -133,6 +133,12 @@
     <Compile Include="QueryMaster.Designer.cs">
       <DependentUpon>QueryMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistryManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegistryManager.Designer.cs">
+      <DependentUpon>RegistryManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Entrance.resx">
       <DependentUpon>Entrance.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QueryMaster.resx">
       <DependentUpon>QueryMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistryManager.resx">
+      <DependentUpon>RegistryManager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

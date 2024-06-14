@@ -43,6 +43,37 @@ namespace Technoservis3
                     flowLayoutPanel1.Controls.Add(query);
                 }
             }
+
+            NpgsqlConnection con2 = new NpgsqlConnection(path);
+            string sql2 = "select * from query_registry";
+            NpgsqlCommand cmd2 = new NpgsqlCommand(sql2, con2);
+            NpgsqlDataReader reader2 = cmd.ExecuteReader();
+            if (reader2.HasRows)
+            {
+                while (reader2.Read())
+                {
+                    RegistryManager query = new RegistryManager(
+                        Convert.ToInt32(reader2.GetValue(0)),
+                        reader2.GetValue(1).ToString(),
+                        reader2.GetValue(2).ToString(),
+                        reader2.GetValue(3).ToString(),
+                        reader2.GetValue(4).ToString(),
+                         Convert.ToInt32(reader2.GetValue(5)),
+                         reader2.GetValue(6).ToString(),
+                         Convert.ToInt32(reader2.GetValue(7))
+                        ) ;
+                    flowLayoutPanel2.Controls.Add(query);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(path);
+            string sql = "insert into query_registry (id_registry, date_insert, device, type_problem, description, id_client, status, id_staff)" +
+                "values (@id_registry, @date_insert, @device, @type_problem, @description, @id_client, @status, @id_staff)";
+            NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+            command.Parameters.AddW
         }
     }
 }
